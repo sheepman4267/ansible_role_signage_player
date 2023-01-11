@@ -1,0 +1,29 @@
+# Reload the page periodically?
+reload: True
+
+# Reload the page every 5 minutes
+reload_every: "5min"
+
+# User to run signage as
+signage_user: "signage"
+
+# Schedule file location
+signage_schedule_location: "/var/ansible-digital-signage/signage_schedule"
+
+# Timezone
+signage_timezone: "America/Indianapolis"
+
+# File to deploy as a placeholder
+signage_placeholder: "files/signage-placeholder.html"
+
+# Orientation of display output. See --rotate: https://www.x.org/releases/X11R7.5/doc/man/man1/xrandr.1.html
+signage_orientation: normal
+
+# Name of browser package to use
+signage_browser_package: "google-chrome-stable"
+
+# Browser command. Change this for platforms where Chrome doesn't work.
+signage_browser_command: "/usr/bin/google-chrome-stable --kiosk"
+
+# Command to start the X11 server. This is a hack and will hopefully not be required long term.
+signage_startx_command: "xinit -- vt8 -keeptty"

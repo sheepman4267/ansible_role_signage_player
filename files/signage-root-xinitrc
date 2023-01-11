@@ -1,0 +1,7 @@
+# xinitrc for ansible-digital-signage
+
+# Run xeyes rather than xterm to avoid having a terminal emulator just sitting there if someone can break out of chrome
+xeyes
+
+# Detect the primary display
+python3 /opt/ansible-digital-signage/detect-primary-display.py /opt/ansible-digital-signage/display
