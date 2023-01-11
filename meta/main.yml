@@ -1,0 +1,10 @@
+---
+galaxy_info:
+  description: 'Role to set up a digital signage player'
+  company:     ''
+  issue_tracker_url: 'https://github.com/sheepman4267/ansible_role_signage_player/issues'
+  license: 'MIT'
+  min_ansible_version: 2.4
+
+dependencies: []
+...
