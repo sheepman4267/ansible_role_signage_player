@@ -10,9 +10,6 @@ signage_user: "signage"
 # Schedule file location
 signage_schedule_location: "/var/ansible-digital-signage/signage_schedule"
 
-# Timezone
-signage_timezone: "America/Indianapolis"
-
 # File to deploy as a placeholder
 signage_placeholder: "files/signage-placeholder.html"
 

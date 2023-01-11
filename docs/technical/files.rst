@@ -52,11 +52,6 @@ signage-refresh.py is a python script which:
 
 To assist in this, the script also includes an incredibly simplistic :code:`strptime` function which only works for 24-hour time with no seconds.
 
---------
-timezone
---------
-ansible-digital-signage writes :ref:`signage_timezone` to :code:`/etc/timezone` to keep Ubuntu from "helpfully" resetting the timezone after every tzdata update.
-
 -------
 xinitrc
 -------

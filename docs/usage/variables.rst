@@ -83,12 +83,6 @@ Default::
 
     signage_startx_command: "xinit -- vt8 -keeptty"
 
-----------------
-signage_timezone
-----------------
-String. Sets the timezone on the signage player. Defaults to :code:`America/Indianapolis`. This accepts anything in the "TZ Database Name" column on this page: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-
 ------------
 signage_user
 ------------
