@@ -12,22 +12,22 @@ Documentation (and a more in-depth quickstart) for this role lives in `docs/` as
 #. Clone this repository into your `roles/` directory
 #. You will need a `playbook.yml`:
 
-    ```yaml
-    - hosts: signage_players
-    roles:
+```yaml
+- hosts: signage_players
+  roles:
     - role: 'signage_player'
-    ```
+```
 
 #. And a `hosts.yml`:
 
-    ```yaml
-    its_sign_test:
-    vars:
-        ansible_user: administrator
-        signage_schedule:
-        - { days: "Mon,Tue,Wed,Thu,Fri,Sat,Sun", start_time: "08:00", end_time: "17:00", url: "https://example.com" }
-    hosts:
-        change-me-to-your-signage-player-address
-    ```
+```yaml
+its_sign_test:
+  vars:
+    ansible_user: administrator
+    signage_schedule:
+      - { days: "Mon,Tue,Wed,Thu,Fri,Sat,Sun", start_time: "08:00", end_time: "17:00", url: "https://example.com" }
+  hosts:
+    change-me-to-your-signage-player-address
+```
 
 #. Run your playbook with `ansible-playbook -i hosts.yml playbook.yml`.
