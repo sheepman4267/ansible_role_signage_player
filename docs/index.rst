@@ -6,7 +6,7 @@
     technical/technical
 
 =======================
-Ansible Digital Signage
+Ansible Role: Signage Player
 =======================
 -----
 What?
