@@ -9,8 +9,8 @@ This is an Ansible role which can be used to set up a digital signage player, ki
 Documentation (and a more in-depth quickstart) for this role lives in `docs/` as well as at https://ansible-role-signage-player.readthedocs.io. 
 
 # Basic Usage
-#. Clone this repository into your `roles/` directory
-#. You will need a `playbook.yml`:
+1. Clone this repository into your `roles/` directory
+2. You will need a `playbook.yml`:
 
 ```yaml
 - hosts: signage_players
@@ -18,7 +18,7 @@ Documentation (and a more in-depth quickstart) for this role lives in `docs/` as
     - role: 'signage_player'
 ```
 
-#. And a `hosts.yml`:
+3. And a `hosts.yml`:
 
 ```yaml
 its_sign_test:
@@ -30,4 +30,4 @@ its_sign_test:
     change-me-to-your-signage-player-address
 ```
 
-#. Run your playbook with `ansible-playbook -i hosts.yml playbook.yml`.
+4. Run your playbook with `ansible-playbook -i hosts.yml playbook.yml`.
