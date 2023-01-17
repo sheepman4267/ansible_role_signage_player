@@ -114,6 +114,7 @@
           - xrandr
           #- x11-xserver-utils
           - python3
+          - xeyes
         state: present
 
     - name: Ensure Browser is installed
