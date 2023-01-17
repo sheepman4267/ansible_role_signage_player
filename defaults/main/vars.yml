@@ -18,3 +18,6 @@ signage_orientation: normal
 
 # Browser to use
 signage_browser: 'chrome'
+
+# Command to start X11
+signage_startx_command: "xinit -- vt8 -keeptty"
