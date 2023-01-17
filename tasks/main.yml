@@ -119,7 +119,7 @@
     - name: Ensure Browser is installed
       ansible.builtin.dnf:
         name:
-          - "{{ signage_browser }}"
+          - "{{ signage_browser_package }}"
         state: present
 
 - name: System configuration
