@@ -219,6 +219,14 @@
   ansible.builtin.pause:
     seconds: 5
 
+- name: Temporarily set the current URL to the first schedule item, regardless of schedule
+  ansible.builtin.template:
+    src: "files/current.j2"
+    dest: "/var/ansible-digital-signage/current"
+    owner: "{{ signage_user }}"
+    group: "{{ signage_user }}"
+    mode: 0755
+
 - name: Deal with Chrome on first run
   when: ("signage_browser_package == 'google-chrome-stable'") or ("signage_browser_package == 'chromium-browser'")
   tags: setup

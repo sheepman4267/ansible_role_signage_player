@@ -21,3 +21,6 @@ signage_browser: 'chrome'
 
 # Command to start X11
 signage_startx_command: "xinit -- vt8 -keeptty"
+
+# We usually don't want to use this variable
+signage_browser_execstart_override: False
