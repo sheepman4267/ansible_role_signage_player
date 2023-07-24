@@ -102,7 +102,7 @@
 
 - name: RedHat-based distro - Ensure package requirements are met
   become: yes
-  when: ansible_distribution == 'Fedora'
+  when: ansible_distribution == 'Fedora' or ansible_distribution == 'Rocky'
   tags: setup
   block:
     - name: Ensure required packages are installed
