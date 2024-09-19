@@ -198,6 +198,16 @@
         - signage-autoreload.timer
         - signage-autoreload.service
       when: signage_reload
+
+    - name: Disable and stop autoreload units
+      ansible.builtin.systemd:
+        name: "{{ item }}"
+        state: stopped
+        enabled: no
+      loop:
+        - signage-autoreload.timer
+        - signage-autoreload.service
+      when: signage_reload|bool == false
       
     - name: Install Python scripts
       ansible.builtin.copy:
