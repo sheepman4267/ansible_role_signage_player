@@ -5,8 +5,8 @@
 Description=Timer to reload displayed webpage for ansible-digital-signage
 
 [Timer]
-OnBootSec={{ reload_every }}
-OnUnitActiveSec={{ reload_every }}
+OnBootSec={{ signage_reload_every }}
+OnUnitActiveSec={{ signage_reload_every }}
 Unit=signage-autoreload.service
 
 [Install]
