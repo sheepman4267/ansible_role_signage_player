@@ -1,5 +1,7 @@
 # xinitrc for signage
 # installed to /home/{{ signage_user }}/.xinitrc
 
+xset -dpms
+xset s off
 python3 /opt/ansible-digital-signage/detect-primary-display.py /var/ansible-digital-signage/display-output
 xeyes
