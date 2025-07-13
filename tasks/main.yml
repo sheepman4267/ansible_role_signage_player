@@ -143,6 +143,15 @@
         name:
           - "{{ signage_browser_package }}"
         state: present
+      when: "signage_browser != 'openkiosk'"
+
+    - name: Ensure OpenKiosk is installed
+      ansible.builtin.dnf:
+        name:
+          - "{{ signage_browser_package }}"
+        state: present
+        disable_gpg_check: true
+      when: "signage_browser == 'openkiosk'"
 
 - name: System configuration
   become: yes
