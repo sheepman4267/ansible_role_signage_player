@@ -61,12 +61,28 @@
           signage_browser_package: "firefox-esr"
           signage_browser_window_name: "firefox"
           signage_browser_command: "MOZ_USE_XINPUT2=1 /usr/bin/firefox-esr -kiosk"
+      
+      - name: Set facts for OpenKiosk
+        when: signage_browser == 'openkiosk'
+        ansible.builtin.set_fact:
+          signage_browser_package: "/tmp/OpenKiosk115.20.0-2025-02-16-x86_64.rpm"
+          signage_browser_window_name: "OpenKiosk"
+          signage_browser_command: "MOZ_USE_XINPUT2=1 OpenKiosk"
 
 - name: Debian-based distro - Ensure package requirements are met
   become: yes
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
   tags: setup
   block:
+    - name: Fail if trying to use OpenKiosk on Debian-based distro
+      ansible.builtin.debug:
+        msg: "OpenKiosk cannot currently be installed by this role on Debian-based distributions. This functionality could be added, but isn't necessary in currently known deployments. If you wish to use this role to deploy OpenKiosk on Ubuntu or Debian, please file an issue at https://github.com/sheepman4267/ansible_role_signage_player. PRs are also welcome to implement this functionality."
+      when: "signage_browser == 'openkiosk'"
+    
+    - name: Actually exit if trying to use OpenKiosk on Debian-based distro
+      ansible.builtin.end_play:
+      when: "signage_browser == 'openkiosk'"
+
     - name: Ensure signing key for Google Chrome PPA is up to date
       ansible.builtin.get_url:
         url: https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -116,6 +132,11 @@
           - python3
           - xeyes
         state: present
+    
+    - name: Fetch OpenKiosk package
+      ansible.builtin.get_url:
+        url: https://www.mozdevgroup.com/dropbox/okcd/115/release/OpenKiosk115.20.0-2025-02-16-x86_64.deb
+        dest: /var/OpenKiosk115.20.0-2025-02-16-x86_64.deb
 
     - name: Ensure Browser is installed
       ansible.builtin.dnf:
