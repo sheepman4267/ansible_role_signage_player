@@ -80,7 +80,7 @@
       when: "signage_browser == 'openkiosk'"
     
     - name: Actually exit if trying to use OpenKiosk on Debian-based distro
-      ansible.builtin.end_play:
+      ansible.builtin.meta: end_host
       when: "signage_browser == 'openkiosk'"
 
     - name: Ensure signing key for Google Chrome PPA is up to date
