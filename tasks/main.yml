@@ -135,8 +135,8 @@
     
     - name: Fetch OpenKiosk package
       ansible.builtin.get_url:
-        url: https://www.mozdevgroup.com/dropbox/okcd/115/release/OpenKiosk115.20.0-2025-02-16-x86_64.deb
-        dest: /tmp/OpenKiosk115.20.0-2025-02-16-x86_64.deb
+        url: https://www.mozdevgroup.com/dropbox/okcd/115/release/OpenKiosk115.20.0-2025-02-16-x86_64.rpm
+        dest: /tmp/OpenKiosk115.20.0-2025-02-16-x86_64.rpm
 
     - name: Ensure Browser is installed
       ansible.builtin.dnf:
