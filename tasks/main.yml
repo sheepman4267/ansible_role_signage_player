@@ -69,6 +69,13 @@
           signage_browser_window_name: "OpenKiosk"
           signage_browser_command: "MOZ_USE_XINPUT2=1 OpenKiosk"
 
+      - name: Set facts for OpenKiosk Alpha
+        when: signage_browser == 'openkiosk-alpha'
+        ansible.builtin.set_fact:
+          signage_browser_package: "/tmp/OpenKiosk128.12.0-2025-07-06-x86_64.rpm"
+          signage_browser_window_name: "OpenKiosk"
+          signage_browser_command: "MOZ_USE_XINPUT2=1 OpenKiosk"
+
 - name: Debian-based distro - Ensure package requirements are met
   become: yes
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
@@ -138,6 +145,12 @@
         url: https://www.mozdevgroup.com/dropbox/okcd/115/release/OpenKiosk115.20.0-2025-02-16-x86_64.rpm
         dest: /tmp/OpenKiosk115.20.0-2025-02-16-x86_64.rpm
       when: "signage_browser" == 'openkiosk'
+
+    - name: Fetch OpenKiosk Alpha package
+      ansible.builtin.get_url:
+        url: https://www.mozdevgroup.com/dropbox/okcd/128/alpha/OpenKiosk128.12.0-2025-07-06-x86_64.rpm
+        dest: /tmp/OpenKiosk128.12.0-2025-07-06-x86_64.rpm
+      when: "signage_browser" == openkiosk-alpha
 
     - name: Ensure Browser is installed
       ansible.builtin.dnf:
