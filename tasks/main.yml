@@ -157,7 +157,9 @@
         name:
           - "{{ signage_browser_package }}"
         state: present
-      when: "signage_browser != 'openkiosk' and signage_browser != 'openkiosk-alpha'"
+      when:
+        - "signage_browser != 'openkiosk'"
+        - "signage_browser != 'openkiosk-alpha'"
 
     - name: Ensure OpenKiosk is installed
       ansible.builtin.dnf:
@@ -165,7 +167,7 @@
           - "{{ signage_browser_package }}"
         state: present
         disable_gpg_check: true
-      when: "signage_browser == 'openkiosk' or signage_browser == 'openkiosk-alpha"
+      when: ("signage_browser == 'openkiosk'") or ("signage_browser == 'openkiosk-alpha'")
 
 - name: System configuration
   become: yes
