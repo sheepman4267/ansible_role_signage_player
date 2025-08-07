@@ -144,13 +144,13 @@
       ansible.builtin.get_url:
         url: https://www.mozdevgroup.com/dropbox/okcd/115/release/OpenKiosk115.20.0-2025-02-16-x86_64.rpm
         dest: /tmp/OpenKiosk115.20.0-2025-02-16-x86_64.rpm
-      when: "signage_browser" == 'openkiosk'
+      when: "signage_browser == 'openkiosk'"
 
     - name: Fetch OpenKiosk Alpha package
       ansible.builtin.get_url:
         url: https://www.mozdevgroup.com/dropbox/okcd/128/alpha/OpenKiosk128.12.0-2025-07-06-x86_64.rpm
         dest: /tmp/OpenKiosk128.12.0-2025-07-06-x86_64.rpm
-      when: "signage_browser" == openkiosk-alpha
+      when: "signage_browser == 'openkiosk-alpha'"
 
     - name: Ensure Browser is installed
       ansible.builtin.dnf:
